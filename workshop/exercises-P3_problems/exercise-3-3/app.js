@@ -12,6 +12,7 @@ let btnList = [...document.querySelectorAll("button")];
 const initializeBtn = (arr) => {
   arr.forEach((element) => {
     element.style.backgroundColor = "gold";
+    element.addEventListener("click", clickButton);
   });
 };
 
@@ -21,21 +22,23 @@ const toggleColor = (id) => {
   switch (id) {
     case "btn-2":
       btn.style.backgroundColor === "crimson"
-        ? btn.style.backgroundColor === "gold"
-        : btn.style.backgroundColor === "crimson";
+        ? (btn.style.backgroundColor = "gold")
+        : (btn.style.backgroundColor = "crimson");
       break;
     case "btn-3":
       btn.style.backgroundColor === "lightblue"
-        ? btn.style.backgroundColor === "gold"
-        : btn.style.backgroundColor === "lightblue";
+        ? (btn.style.backgroundColor = "gold")
+        : (btn.style.backgroundColor = "lightblue");
     default:
       break;
   }
 };
 
 //logic for reset button
-const resetBtn = (id) => {
-  id;
+const resetBtn = (arr) => {
+  initializeBtn(arr);
+  arr[0].style.opacity = "100";
+  arr[btnList.length - 2].classList.remove("jitters");
 };
 
 // function for event handler
@@ -44,7 +47,7 @@ const clickButton = (event) => {
   btn = document.getElementById(btnId);
   switch (btnId) {
     case "btn-1":
-      btn.style.opacity = "0"
+      btn.style.opacity === "0"
         ? (btn.style.opacity = "100")
         : (btn.style.opacity = "0");
       break;
@@ -56,8 +59,10 @@ const clickButton = (event) => {
       break;
     case "btn-4":
       btn.classList.toggle("jitters");
+      break;
     case "reset":
-
+      resetBtn(btnList);
+      break;
     default:
       break;
   }
