@@ -14,9 +14,22 @@
 
 function longestWord(str) {
   // Place solution here
+  let newArray = str.split(" ");
+  let longestWord = "";
+  newArray.forEach((word) => {
+    if (word.length >= longestWord.length) {
+      longestWord = word;
+    }
+  });
+  return longestWord;
 }
 
 // We need 5 test cases
+expect(longestWord("hey hello morning"), "morning");
+expect(longestWord("To infinity and beyond"), "infinity");
+expect(longestWord(""), "");
+expect(longestWord("long is wide"), "wide");
+expect(longestWord("banana or orange"), "orange");
 
 /**
  * -------------------------------------------------------------------
@@ -25,7 +38,7 @@ function longestWord(str) {
  */
 function expect(result, value) {
   if (result === value) {
-    console.log('✅ Test succeeded');
+    console.log("✅ Test succeeded");
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
   }

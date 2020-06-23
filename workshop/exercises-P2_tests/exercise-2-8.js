@@ -16,9 +16,21 @@
 
 function reverse(str) {
   // Your code here
+  let strArray = str.split("");
+  let newArray = [];
+  for (let i = strArray.length - 1; i >= 0; i--) {
+    newArray.push(strArray[i]);
+  }
+  let newStr = newArray.join("");
+  return newStr;
 }
 
 // We need 5 test cases
+expect(reverse("banana"), "ananab");
+expect(reverse("anna anna"), "anna anna");
+expect(reverse("Luis-Miguel"), "leugiM-siuL");
+expect(reverse("...!?"), "?!...");
+expect(reverse("34,45,10"), "01,54,43");
 
 /**
  * -------------------------------------------------------------------
@@ -27,7 +39,7 @@ function reverse(str) {
  */
 function expect(result, value) {
   if (result === value) {
-    console.log('✅ Test succeeded');
+    console.log("✅ Test succeeded");
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
   }
