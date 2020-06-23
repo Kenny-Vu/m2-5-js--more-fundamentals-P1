@@ -7,13 +7,15 @@
 // to remove the 'jitters' class, check the length of the classList.
 
 let btnList = [...document.querySelectorAll("button")];
+let btnUL = document.getElementById("btn-list");
 
 //initialize buttons
 const initializeBtn = (arr) => {
   arr.forEach((element) => {
     element.style.backgroundColor = "gold";
-    element.addEventListener("click", clickButton);
   });
+  arr[arr.length - 1].style.backgroundColor = "";
+  btnUL.addEventListener("click", clickButton);
 };
 
 //toggle color
